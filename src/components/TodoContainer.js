@@ -9,12 +9,15 @@ function TodoContainer() {
     const [lastId, setLastId] = useState(0);
 
     const addTask = () => {
-        setTasks(prevTasks => [...prevTasks, {
-            id: lastId,
-            name: taskName,
-            isCompleted: false
-        }]);
-        setLastId(lastId + 1);
+        // task name input is not empty
+        if (taskName.trim().length !== 0) {
+            setTasks(prevTasks => [...prevTasks, {
+                id: lastId,
+                name: taskName,
+                isCompleted: false
+            }]);
+            setLastId(lastId + 1);
+        }
     };
 
     const updateTaskCompletion = (id) => {
